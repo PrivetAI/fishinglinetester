@@ -61,9 +61,10 @@ struct SimulatorView: View {
                         if !isSimulating {
                             PrimaryButton(
                                 title: selectedFish != nil ? "Start Fishing!" : "Select a Fish First",
-                                action: startSimulation,
                                 isDisabled: selectedFish == nil
-                            )
+                            ) {
+                                startSimulation()
+                            }
                             .padding(.horizontal, Constants.UI.screenPadding)
                         }
                     }
@@ -417,13 +418,13 @@ struct SimulatorView: View {
                 
                 // Buttons
                 HStack(spacing: 16) {
-                    PrimaryButton(title: "Try Again", action: {
+                    PrimaryButton(title: "Try Again", style: .secondary) {
                         resetSimulation()
-                    }, style: .secondary)
+                    }
                     
-                    PrimaryButton(title: "Done", action: {
+                    PrimaryButton(title: "Done") {
                         presentationMode.wrappedValue.dismiss()
-                    })
+                    }
                 }
             }
             .padding(30)
