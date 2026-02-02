@@ -4,8 +4,15 @@ import SwiftUI
 struct PrimaryButton: View {
     let title: String
     let action: () -> Void
-    var isDisabled: Bool = false
-    var style: ButtonStyle = .primary
+    var isDisabled: Bool
+    var style: ButtonStyle
+    
+    init(title: String, isDisabled: Bool = false, style: ButtonStyle = .primary, action: @escaping () -> Void) {
+        self.title = title
+        self.isDisabled = isDisabled
+        self.style = style
+        self.action = action
+    }
     
     enum ButtonStyle {
         case primary
