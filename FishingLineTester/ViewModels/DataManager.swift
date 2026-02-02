@@ -72,12 +72,12 @@ final class DataManager: ObservableObject {
     }
     
     func deleteCombination(_ combination: SavedCombination) {
-        savedCombinations.removeAll { $0.id == combination.id }
+        savedCombinations.removeAll { item in item.id == combination.id }
         saveSavedCombinations()
     }
     
     func updateCombination(_ combination: SavedCombination) {
-        if let index = savedCombinations.firstIndex(where: { $0.id == combination.id }) {
+        if let index = savedCombinations.firstIndex(where: { item in item.id == combination.id }) {
             savedCombinations[index] = combination
             saveSavedCombinations()
         }
@@ -117,10 +117,10 @@ final class DataManager: ObservableObject {
         }
         
         // Trophy Hunter
-        let fishCategory = FishDatabase.allFish.first { $0.name == result.fishName }?.category
+        let fishCategory = FishDatabase.allFish.first { fish in fish.name == result.fishName }?.category
         if result.success && fishCategory == .trophy {
-            let trophyCatches = testHistory.filter { 
-                $0.success && FishDatabase.allFish.first { f in f.name == $0.fishName }?.category == .trophy
+            let trophyCatches = testHistory.filter { result in
+                result.success && FishDatabase.allFish.first { fish in fish.name == result.fishName }?.category == .trophy
             }.count
             updateAchievementProgress(id: "trophy_hunter", progress: trophyCatches)
         }
@@ -135,7 +135,7 @@ final class DataManager: ObservableObject {
     }
     
     private func updateAchievementProgress(id: String, progress: Int) {
-        if let index = achievements.firstIndex(where: { $0.id == id }) {
+        if let index = achievements.firstIndex(where: { achievement in achievement.id == id }) {
             achievements[index].updateProgress(progress)
         }
     }
