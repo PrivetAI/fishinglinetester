@@ -5,7 +5,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en-GB</string>
     <key>CFBundleDisplayName</key>
-    <string>Line Tester</string>
+    <string>Fishing Line Tester</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
