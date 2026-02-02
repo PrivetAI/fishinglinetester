@@ -32,9 +32,10 @@ struct CalculatorView: View {
                     // Calculate button
                     PrimaryButton(
                         title: "Get Recommendation",
-                        action: { showResult = true },
                         isDisabled: selectedFish == nil
-                    )
+                    ) {
+                        showResult = true
+                    }
                     .padding(.horizontal, Constants.UI.screenPadding)
                     
                     // Result
