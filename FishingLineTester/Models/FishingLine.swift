@@ -129,19 +129,4 @@ enum LineWear: String, CaseIterable, Codable, Identifiable {
     }
 }
 
-// MARK: - Saved Line Combination
-struct SavedCombination: Codable, Identifiable {
-    let id: UUID
-    var name: String
-    var line: FishingLine
-    var notes: String
-    let createdAt: Date
-    
-    init(id: UUID = UUID(), name: String, line: FishingLine, notes: String = "") {
-        self.id = id
-        self.name = name
-        self.line = line
-        self.notes = notes
-        self.createdAt = Date()
-    }
-}
+
