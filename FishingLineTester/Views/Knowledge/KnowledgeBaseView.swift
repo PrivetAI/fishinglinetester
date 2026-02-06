@@ -9,6 +9,7 @@ struct KnowledgeBaseView: View {
         case tables = "Tables"
         case tips = "Tips & Facts"
         case knots = "Knots"
+        case quiz = "Quiz"
     }
     
     var body: some View {
@@ -30,6 +31,8 @@ struct KnowledgeBaseView: View {
                     tipsSection
                 case .knots:
                     knotsSection
+                case .quiz:
+                    QuizView()
                 }
             }
         }
