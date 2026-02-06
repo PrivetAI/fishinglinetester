@@ -1,4 +1,4 @@
-# Fishing Line Strength Tester
+# Fishing Line Tester
 
 An educational iOS app that simulates fishing scenarios to help users understand line strength relative to fish size.
 
